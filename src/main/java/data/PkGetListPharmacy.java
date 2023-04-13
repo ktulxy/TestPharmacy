@@ -8,6 +8,7 @@ public class PkGetListPharmacy {
 
 
     public static String pkTakePharmacy(){
+
         String response = given().param(
                         "isApiOnly","true").
                 headers(
@@ -16,6 +17,6 @@ public class PkGetListPharmacy {
                 when().get(
                         url + urlgetlistpharmacy).
                 then().statusCode(200).extract().jsonPath().getString("insuranceId");
-                return response;
+        return response;
     }
 }
