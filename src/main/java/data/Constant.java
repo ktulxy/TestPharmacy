@@ -14,4 +14,7 @@ public class Constant {
 
     public static String urlgetmedicament = "v2.1/pharmacies/412/products/selected";
 
+    //Assert
+    public static String productName = "[Мастодинон краплі оральні флакон 50 мл , Мастодинон таблетки 3 блістера по 20шт , Мастодинон краплі оральні флакон 100 мл]";
+
 }
