@@ -12,14 +12,10 @@ public class PkGetListPharmacy {
                         "isApiOnly","true").
                 headers(
                         "Authorization",
-                        "Bearer " + bearToken).
+                        "Bearer " + PkGetBearToken.token()).
                 when().get(
-                      url + urlgetlistpharmacy).
-              //  then().statusCode(200).extract().response().asString();
+                        url + urlgetlistpharmacy).
                 then().statusCode(200).extract().jsonPath().getString("insuranceId");
-
-        System.out.println(response);
-
-        return response;
+                return response;
     }
 }

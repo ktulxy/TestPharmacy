@@ -1,13 +1,16 @@
+import data.PkGetBearToken;
 import data.PkGetListPharmacy;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class GetListPharmacy {
 
-//    @BeforeTest
-//    public static void takeToken(){
-//        GetToken.token();
-//    }
+
+    @BeforeMethod
+    public static void getToken(){
+        PkGetBearToken.token();
+    }
 
     @Test
     public static void takePharmacy(){
