@@ -20,6 +20,7 @@ public class  PkFindMedicament{
             .when()
             .get(url + urlgetmedicament)
             .then().statusCode(200).extract().jsonPath().getString("data.productName");
+    System.out.println(medicament);
     return medicament;
     }
 }

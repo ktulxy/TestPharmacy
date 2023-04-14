@@ -12,6 +12,7 @@ public class PkGetBearToken {
                 .header("Content-type", "application/json")
                 .body(requestBody).when().post(Constant.url + urlbeartoken)
                 .then().statusCode(200).extract().jsonPath().getString("token");
+      //  System.out.println(response);
                 return response;
     }
 }
