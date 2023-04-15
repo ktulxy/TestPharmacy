@@ -14,6 +14,8 @@
         <aspectj.version>1.8.10</aspectj.version>
     </properties>
 
+
+
     <dependencies>
         <dependency>
             <groupId>com.codeborne</groupId>
@@ -55,9 +57,17 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+        </dependency>
 
 
     </dependencies>
+
+
+
     <build>
         <plugins>
             <plugin>
@@ -68,6 +78,9 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
                 <dependencies>
                     <dependency>
