@@ -1,22 +1,29 @@
 package data;
 
 
-import static data.Constant.*;
+import api.PharmacyData;
+import api.Specification;
+import org.testng.Assert;
+
+import java.util.List;
+
+import static data.Constant.url;
+import static data.Constant.urlGetListPharmacy;
 import static io.restassured.RestAssured.given;
 
 public class PkGetListPharmacy {
 
 
-    public static String pkTakePharmacy(){
+    public static void pkTakePharmacy(){
+        Specification.installSpec(Specification.requestSpec(url),Specification.responseSpec());
 
-        String response = given().param(
-                        "isApiOnly","true").
-                headers(
-                        "Authorization",
-                        "Bearer " + PkGetBearToken.token()).
-                when().get(
-                        url + urlgetlistpharmacy).
-                then().statusCode(200).extract().jsonPath().getString("insuranceId");
-        return response;
+        List<PharmacyData> pharmacy = given()
+                .param("isApiOnly","true")
+                .when()
+                .get(urlGetListPharmacy)
+                .then()
+                //.log().all()
+                .extract().body().jsonPath().getList("data", PharmacyData.class);
+        Assert.assertTrue(pharmacy.stream().allMatch(x->x.getPharmacyId().equals(412)));
     }
 }

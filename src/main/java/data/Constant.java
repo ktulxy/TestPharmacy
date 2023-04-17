@@ -11,7 +11,7 @@ public class Constant {
     //Url
     public static String url = "https://api-all.apteka911.com.ua/api/";
     public static String urlbeartoken = "v2/users/login";
-    public static String urlgetlistpharmacy = "v2/aws/insurancecompanies/3/pharmacies";
+    public static String urlGetListPharmacy = "v2/aws/insurancecompanies/3/pharmacies";
     public static String urlgetmedicament = "v2.1/pharmacies/412/products/selected";
     public static String urlGetPrice = "v2/aws/insurancecompanies/3/pharmacies/0/products/list/balance";
 
