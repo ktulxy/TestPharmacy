@@ -1,26 +1,28 @@
 package data;
 
+import api.GetPriceData;
+import api.Specification;
+import org.testng.Assert;
+
+import java.util.List;
+
 import static data.Constant.*;
 import static io.restassured.RestAssured.given;
 public class PkGetPrice {
 
-    public static String getPrice(){
-        String price = given()
+    public static void getPrice(){
+
+       List<GetPriceData> price = given()
+               .spec(Specification.requestSpec(url))
                 .queryParam("cityCode", "64")
-                .header("Content-type", "application/json")
-                .header("Authorization", "Bearer " + PkGetBearToken.token())
                 .body("[1285]")
                 .when()
-                .post(url + urlGetPrice)
-                .then().statusCode(200).extract().jsonPath().getString("data");
-        return price;
+                .post(urlGetPrice)
+                .then()
+                .spec(Specification.responseSpec())
+                .log().ifValidationFails()
+                .extract().body().jsonPath().getList("data", GetPriceData.class);
+        Assert.assertTrue(price.stream().anyMatch(x->x.getInsurancePrice().equals(pharmacyPrice)));
+
     }
-
-    public static String getProductAndPrice(){
-
-        String getData = getPrice();
-        String subData = getData.substring(120,137);
-        return subData;
-    }
-
 }

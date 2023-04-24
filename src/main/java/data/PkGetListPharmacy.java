@@ -7,23 +7,24 @@ import org.testng.Assert;
 
 import java.util.List;
 
-import static data.Constant.url;
-import static data.Constant.urlGetListPharmacy;
+import static data.Constant.*;
 import static io.restassured.RestAssured.given;
 
 public class PkGetListPharmacy {
 
 
     public static void pkTakePharmacy(){
-        Specification.installSpec(Specification.requestSpec(url),Specification.responseSpec());
+
 
         List<PharmacyData> pharmacy = given()
+                .spec(Specification.requestSpec(url))
                 .param("isApiOnly","true")
                 .when()
                 .get(urlGetListPharmacy)
                 .then()
-                //.log().all()
+                .spec(Specification.responseSpec())
+                .log().ifValidationFails()
                 .extract().body().jsonPath().getList("data", PharmacyData.class);
-        Assert.assertTrue(pharmacy.stream().allMatch(x->x.getPharmacyId().equals(412)));
+        Assert.assertTrue(pharmacy.stream().allMatch(x->x.getPharmacyId().equals(pharmacyId)));
     }
 }

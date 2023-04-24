@@ -8,4 +8,5 @@ public class GetListPharmacy {
     public static void takePharmacy(){
         PkGetListPharmacy.pkTakePharmacy();
     }
+
 }

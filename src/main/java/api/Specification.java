@@ -1,7 +1,6 @@
 package api;
 
 import data.PkGetBearToken;
-import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -14,8 +13,10 @@ public class Specification {
         return new RequestSpecBuilder()
                 .setBaseUri(url)
                 .setContentType(ContentType.JSON)
+                .setAccept("application/json")
                 .addHeader("Authorization",
                         "Bearer " + PkGetBearToken.token())
+                .addHeader("Host", "api-all.apteka911.com.ua")
                 .build();
     }
 
@@ -23,11 +24,6 @@ public class Specification {
         return new ResponseSpecBuilder()
                 .expectStatusCode(200)
                 .build();
-    }
-
-    public static void installSpec(RequestSpecification request, ResponseSpecification response){
-        RestAssured.requestSpecification = request;
-        RestAssured.responseSpecification = response;
     }
 
 }

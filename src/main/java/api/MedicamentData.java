@@ -10,6 +10,9 @@ public class MedicamentData {
         this.productName = productName;
         this.netPrice = netPrice;
     }
+    public MedicamentData() {
+
+    }
 
     public Integer getProductId() {
         return productId;

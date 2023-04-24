@@ -1,8 +1,8 @@
 <suite name="TestSuite">
-    <test name="AutoQA">
+    <test name="Test1">
         <classes>
-            <class name="FindMedicament" />
             <class name="GetListPharmacy" />
+            <class name="FindMedicament" />
             <class name="GetPrice" />
         </classes>
     </test>
