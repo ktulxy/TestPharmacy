@@ -15,12 +15,12 @@ public class PkOrderInfo {
 
         List<OrderInfoData> info = given()
                 .spec(Specification.requestSpec(url))
-                .header("action", "view")
+                .param("action", "view")
                 .when()
                 .put(urlViewInfo)
                 .then()
                 .spec(Specification.responseSpec())
-                .log().all()
+                .log().ifValidationFails()
                 .extract().jsonPath().getList("info",OrderInfoData.class);
         Assert.assertTrue(info.stream().allMatch(x->x.getMessage().equals(infoMessage)));
         Assert.assertTrue(info.stream().allMatch(x->x.getRequestId().equals(infoRequestId)));

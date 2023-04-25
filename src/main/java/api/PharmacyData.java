@@ -4,7 +4,7 @@ public class PharmacyData {
     private Integer pharmacyId;
 
 
-    public PharmacyData(Integer pharmacyId, String pharmacyName, String orgCode) {
+    public PharmacyData(Integer pharmacyId) {
         this.pharmacyId = pharmacyId;
 
     }
