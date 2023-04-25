@@ -20,7 +20,7 @@ public class PkOrderInfo {
                 .put(urlViewInfo + orderRequestId)
                 .then()
                 .spec(Specification.responseSpec())
-                .log().all()
+                .log().ifValidationFails()
                 .extract().jsonPath().getList("info",OrderInfoData.class);
         Assert.assertTrue(info.stream().allMatch(x->x.getMessage().equals(infoMessage)));
         Assert.assertTrue(info.stream().allMatch(x->x.getRequestId().equals(orderRequestId)));
