@@ -17,12 +17,12 @@ public class PkOrderCancel {
                 .spec(Specification.requestSpec(url))
                 .param("action", "view")
                 .when()
-                .put(urlViewInfo)
+                .put(urlViewInfo + orderRequestId)
                 .then()
                 .spec(Specification.responseSpec())
                 .log().ifValidationFails()
                 .extract().jsonPath().getList("info", OrderCancelData.class);
-        Assert.assertTrue(cancel.stream().allMatch(x->x.getId().equals(cancelRequestId)));
+        Assert.assertTrue(cancel.stream().allMatch(x->x.getId().equals(orderRequestId)));
         Assert.assertTrue(cancel.stream().allMatch(x->x.getMessage().equals(cancelMessage)));
     }
 }

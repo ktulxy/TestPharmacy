@@ -15,7 +15,7 @@ public class Constant {
     public static String urlFindMedicament = "v2/products/selected/balance";
     public static String urlGetPrice = "v2/aws/insurancecompanies/3/pharmacies/0/products/list/balance"; //Данные об остатках и ценах в аптеке
     public static String urlOrder = "/v2/orders/order"; //Делаем заказ
-    public static String urlViewInfo = "/v2/orders/AA123AA888"; //Отмена или просмотр
+    public static String urlViewInfo = "/v2/orders/"; //Отмена или просмотр
 
     //Assert
 
@@ -24,10 +24,10 @@ public class Constant {
     public static Double pharmacyPrice = 322.5; //Сверяем цену
     public static Integer orderCode = 0; // 0 Успех при создании
     public static String orderMessage = "[:OK] Request CREATE-ORDER received and queued";
-    public static String orderRequestId = "AA123AA888"; // Сверяем номер договора
+    public static String orderRequestId = "AA123AA777"; // Сверяем номер договора
     public static String infoMessage = "[:OK] ORDER ACTION <view> : undefined";
-    public static String infoRequestId = "AA123AA888";
-    public static String cancelRequestId = "AA123AA888";
+    public static String infoRequestId = "AA123AA777";
+    public static String cancelRequestId = "AA123AA777";
     public static String cancelMessage = "[:OK] ORDER ACTION <cancel> : [:OK] PUBLISH TO CHANNEL sync : request";
 
 

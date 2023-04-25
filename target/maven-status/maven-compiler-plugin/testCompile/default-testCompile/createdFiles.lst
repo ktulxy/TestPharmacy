@@ -1,3 +1,6 @@
+OrderInfo.class
 FindMedicament.class
-GetListPharmacy.class
 GetPrice.class
+MakeOrder.class
+OrderCancel.class
+GetListPharmacy.class

@@ -17,12 +17,12 @@ public class PkOrderInfo {
                 .spec(Specification.requestSpec(url))
                 .param("action", "view")
                 .when()
-                .put(urlViewInfo)
+                .put(urlViewInfo + orderRequestId)
                 .then()
                 .spec(Specification.responseSpec())
-                .log().ifValidationFails()
+                .log().all()
                 .extract().jsonPath().getList("info",OrderInfoData.class);
         Assert.assertTrue(info.stream().allMatch(x->x.getMessage().equals(infoMessage)));
-        Assert.assertTrue(info.stream().allMatch(x->x.getRequestId().equals(infoRequestId)));
+        Assert.assertTrue(info.stream().allMatch(x->x.getRequestId().equals(orderRequestId)));
     }
 }
