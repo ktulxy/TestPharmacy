@@ -4,7 +4,7 @@
             <class name="GetListPharmacy" />
             <class name="FindMedicament" />
             <class name="GetPrice" />
-            <class name="MakeOrder" />
+            <!--<class name="MakeOrder" />-->
             <class name="OrderInfo" />
             <class name="OrderCancel" />
         </classes>
