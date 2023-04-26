@@ -20,7 +20,7 @@ public class PkOrder {
                 .when()
                 .post(urlOrder)
                 .then()
-                .spec(Specification.responseSpec())
+                .spec(Specification.responseSpec200())
                 .log().all()//ifValidationFails()
                 .extract().jsonPath().getList("orders",OrderData.class);
         Assert.assertTrue(order.stream().allMatch(x->x.getCode().equals(orderCode)));

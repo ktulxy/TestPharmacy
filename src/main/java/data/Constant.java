@@ -20,7 +20,7 @@ public class Constant {
     //Assert
 
     public static Integer medicamentId = 1285; //Ищем медикамент
-    public static Integer pharmacyId = 412; //Сверяем аптеку
+  //  public static Integer pharmacyId = 412; //Сверяем аптеку
     public static Double pharmacyPrice = 322.5; //Сверяем цену
     public static Integer orderCode = 0; // 0 Успех при создании
     public static String orderMessage = "[:OK] Request CREATE-ORDER received and queued";

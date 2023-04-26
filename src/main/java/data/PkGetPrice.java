@@ -19,7 +19,7 @@ public class PkGetPrice {
                 .when()
                 .post(urlGetPrice)
                 .then()
-                .spec(Specification.responseSpec())
+                .spec(Specification.responseSpec200())
                 .log().ifValidationFails()
                 .extract().body().jsonPath().getList("data", GetPriceData.class);
         Assert.assertTrue(price.stream().anyMatch(x->x.getInsurancePrice().equals(pharmacyPrice)));

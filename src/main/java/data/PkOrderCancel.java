@@ -19,7 +19,7 @@ public class PkOrderCancel {
                 .when()
                 .put(urlViewInfo + orderRequestId)
                 .then()
-                .spec(Specification.responseSpec())
+                .spec(Specification.responseSpec200())
                 .log().ifValidationFails()
                 .extract().jsonPath().getList("info", OrderCancelData.class);
         Assert.assertTrue(cancel.stream().allMatch(x->x.getId().equals(orderRequestId)));
